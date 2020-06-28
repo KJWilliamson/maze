@@ -1,0 +1,47 @@
+/*  Make each cell of the maze a DIV.
+Make each row of the maze a DIV using "display: flex;"   */
+
+
+:root {
+    box-sizing: border-box;  
+}
+
+h1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: limegreen;
+    font-size: 35px;
+}
+
+#maze {
+    height: 500px;
+    background-color: black;
+    
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.row {
+    border: 1px solid orange;
+
+    flex-grow: 1;
+    display: flex;
+}
+
+.block {
+  flex-grow: 1;
+}
+
+.block.wall {
+  background-color: orange;
+}
+
+.block.start {
+    background-color: limegreen;
+}
+
+.block.finish {
+    background-color: purple;
+}
