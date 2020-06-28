@@ -33,6 +33,7 @@ const createMaze = function(blueprint) {
 //nested for loops
 for (let rowNum = 0; rowNum < blueprint.length; rowNum++) {
     const rowString = blueprint[rowNum]
+    console.log(rowString);
     let blockDivs = ''
 
     for (let colNum = 0; colNum < rowString.length; colNum++) {
@@ -48,9 +49,44 @@ for (let rowNum = 0; rowNum < blueprint.length; rowNum++) {
         }
     }
 
-    mazeEl.innerHTML += '<div class = "row"></div>'
+    mazeEl.innerHTML += '<div class = "row">' + blockDivs + '</div>'
+
+
+    //moving thorugh maze 
+    let boxTop = 200;
+    let boxLeft = 200;
+
+
+document.addEventListener('keydown', logKey);
+
+
+function logKey(event) {
+  if(event.key == "ArrowRight") {
+    boxLeft += 10
+  }
+
+  else if(event.key == "ArrowDown") {
+    boxTop += 10
+  }
+
+  else if(event.key == "ArrowLeft") {
+    boxLeft -= 10
+  
+  }
+
+  else if(event.key == "ArrowUp") {
+    boxTop -= 10
+  }
+
+
+  document.getElementById("box").style.top = boxTop + "px";
+  document.getElementById("box").style.left = boxLeft + "px";
+  
 
 }
+
+
+    } 
 }
 createMaze(map)
 
