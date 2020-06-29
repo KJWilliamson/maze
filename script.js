@@ -23,7 +23,9 @@ const map = [
 //F is a floor block
 //S is a space
 
-
+//figure out how to connect player to keyboard event to move player around
+//only allow player to move on clumns and rows
+let player
 let y
 let x
 
