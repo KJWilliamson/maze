@@ -4,6 +4,8 @@ Make each row of the maze a DIV using "display: flex;"   */
 
 :root {
     box-sizing: border-box;  
+    display: flex;
+    justify-content: center;
 }
 
 h1 {
@@ -15,7 +17,8 @@ h1 {
 }
 
 #maze {
-    height: 500px;
+    width: 420px;
+    height: 300px;
     background-color: orange;
     
     display: flex;
@@ -49,5 +52,9 @@ h1 {
 
 #player {
     position: absolute;
+    top: 0;
+    left: 0;
+    width: 10px;
+    height: 10px;
 
 }
