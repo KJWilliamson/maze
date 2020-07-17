@@ -1,7 +1,5 @@
 /*  Make each cell of the maze a DIV.
 Make each row of the maze a DIV using "display: flex;"   */
-
-
 :root {
     box-sizing: border-box;  
     display: flex;
@@ -12,18 +10,29 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: black;
+    color: lime;
     font-size: 35px;
+}
+
+html{
+    background-image: url("mapimage.jpg");
+    
+    background-size: cover;
+    background-position: center center; 
+    height:100%;
+    width:100%
 }
 
 #maze {
     width: 420px;
     height: 300px;
-    background-color: orange;
-    
+    background-color: lime;
     display: flex;
     flex-direction: column;
+    margin: auto;
+    
     position: relative;
+    
     
 }
 
@@ -42,19 +51,42 @@ h1 {
   background-color: black;
 }
 
-.block.start {
-    background-color: limegreen;
+    
+    
+
+/* always subtract to go up or to the left when moving player. and always add whe going down or right. 20px for all. cells are 20px by 20px . */
+
+#ghost {
+  //background-color: white;
+  /* if player is a relative position you can change the top and the left. You need to keep track of what x and y value they're in. y is in rowNum and x is in colNum */
+  background-color: darkgray;
+  position: absolute;
+  //top: 0;
+  //left: 0;
+  width: 20px;
+  height: 20px;
+  
 }
 
 .block.finish {
     background-color: purple;
 }
-
-#player {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 10px;
-    height: 10px;
-
+/* can't figure out how to make a ghost vector for the pointer to restart  */
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 20px;
+    cursor: pointer; 
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: white;
+    background-color: purple;
+    border: none;
+    border-radius: 15px;
+    //box-shadow: 0 9px purple;
+    position: relative;
+    left: 45%;
+    margin-bottom: 20px;
 }
+
