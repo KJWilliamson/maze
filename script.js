@@ -64,8 +64,8 @@ createMaze(map)
 
 
 // keyboard event code
-let moveUpDwn = 20;
-let moveLtRt = 20;
+let moveUpDwn = 200;
+let moveLtRt = 0;
 
 
 document.addEventListener('keydown', ghostMove);
@@ -81,14 +81,14 @@ if(event.key == "ArrowRight") {
 }
 
 else if(event.key == "ArrowDown") {
-  if (map[c][r] !== "W") {
+  if (map[r][c] !== "W") {
     
   } 
   moveUpDwn += 20
 }
 
 else if(event.key == "ArrowLeft") {
-  if (map[c][r] !== "W") {
+  if (map[r][c] !== "W") {
     
   } 
   moveLtRt -= 20
@@ -96,7 +96,7 @@ else if(event.key == "ArrowLeft") {
 }
 
 else if(event.key == "ArrowUp") {    
-  if (map[c][r] !== "W") {
+  if (map[r][c] !== "W") {
     
   }
   moveUpDwn -= 20
