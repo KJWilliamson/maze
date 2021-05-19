@@ -1,83 +1,91 @@
-/*  Make each cell of the maze a DIV.
-Make each row of the maze a DIV using "display: flex;"   */
-:root {
+* {
   box-sizing: border-box;
-  display: flex;
-  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-image: url("mapimage.jpeg");
+  background-size: cover;
+  background-position: center center; 
+  height:100%;
+  width:100%
 }
 
 h1 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  font-family: 'Pacifico', cursive;
+  font-size: 60px;
   color: lime;
-  font-size: 35px;
+  text-shadow: 3px 3px 1px purple;
+  text-align: center;
+  margin-top: 5px;
 }
 
-html {
-  background-image: url("mapimage.jpg");
-  background-size: cover;
-  background-position: center center;
-}
+
 
 #maze {
-  width: 420px;
-  height: 300px;
-  background-color: lime;
+  width: 800px;
+  height: 600px;
+  background: lime;
+  margin: 35px auto;
   display: flex;
   flex-direction: column;
-  margin: auto;
   position: relative;
 }
 
 .row {
-  border: 1px solid;
-
   flex-grow: 1;
   display: flex;
 }
 
 .block {
-  border: 1px solid;
-
   flex-grow: 1;
+
 }
 
-.block.wall {
-  background-color: black;
+.wall {
+  background: black;
+
 }
 
-/* always subtract to go up or to the left when moving player. and always add whe going down or right. 20px for all. cells are 20px by 20px . */
+.finish {
+  background: purple;
+}
 
-#ghost {
-  //background-color: white;
-  /* if player is a relative position you can change the top and the left. You need to keep track of what x and y value they're in. y is in rowNum and x is in colNum */
-  background-color: darkgray;
+.player {
+  width: 38.09px;
+  height: 40px;
+  background: gray;
   position: absolute;
-  //top: 0;
-  //left: 0;
-  width: 20px;
-  height: 20px;
+  top: 360px;
+  
 }
 
-.block.finish {
-  background-color: purple;
-}
-/* can't figure out how to make a ghost vector for the cursor: pointer  */
-.button {
-  display: inline-block;
-  padding: 10px 20px;
-  font-size: 20px;
-  cursor: pointer;
-  text-align: center;
-  text-decoration: none;
-  outline: none;
+
+
+
+.win {
+  width: 700px;
+  height: 700px;
+  background: gray, purple;
+  font-family: 'Pacifico', cursive;
   color: white;
-  background-color: purple;
-  border: none;
-  border-radius: 15px;
-  //box-shadow: 0 9px purple;
-  position: relative;
-  left: 41%;
-  margin-bottom: 20px;
+  text-align: center;
+  font-size: 52px;
+  margin: 86px auto;
+  position: absolute;
+  top: -4%;
+  left: 26%;
+  z-index: 2;
+}
+
+.win a {
+  color: rgb(240, 186, 186);
+  text-decoration: none;
+  color: rgb(240, 159, 173);
+}
+
+
+.text {
+  margin: 120px auto;
 }

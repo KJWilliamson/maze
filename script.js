@@ -14,102 +14,90 @@ const map = [
   "W WWWWWWW WWWWW W W W",
   "W       W       W   W",
   "WWWWWWWWWWWWWWWWWWWWW",
-];   
-//row
-let r
-//column
-let c
+];
 
-//reference to the maze element in html
-const mazeEl = document.getElementById('maze')
+let maze = document.getElementById("maze")
+let player = document.createElement("div")
+let playerRowPos = 9
+let playerColPos = 0
+let topPos = 360
+let leftPos = 0
+let finishRowPos
+let finishColPos
 
 
-const createMaze = function(blueprint) {
+function createMaze (blueprint) {
+  for (let rowNum = 0; rowNum < blueprint.length; rowNum++) {
+      let rowBlock = blueprint[rowNum]
+      let block = ""
+      
 
-for (let rowNum = 0; rowNum < blueprint.length; rowNum++) {
-  const rowString = blueprint[rowNum]
+          for (let columnNum = 0; columnNum < rowBlock.length; columnNum++) {
+              let columnBlock = rowBlock[columnNum]  
+              
+                  if (columnBlock === "W") {
+                      block += `<div class="block wall"></div>`
+                  } else if (columnBlock === "S") {
+                      block += `<div id="start" class="block"></div>`
+                  } else if (columnBlock === "F") {
+                      block += `<div class="block finish"></div>`
+                      finishRowPos = rowNum
+                      finishColPos = columnNum
+                  } else {
+                      block += `<div class="block"></div>`
+                  } 
+              }
+          maze.innerHTML += `<div class="row">${block}</div>`    
+          }
+      player.classList.add("player","butterfly")
+      maze.append(player)  
+}
+createMaze(map) 
 
-  let blockDivs = ''
 
-  for (let colNum = 0; colNum < rowString.length; colNum++) {
+function movePlayer(e) {
+  if (e.code === "ArrowDown") {
+      let down = map[playerRowPos + 1][playerColPos]
+      if (down !== "W") {
+          topPos += 40 
+          playerRowPos++
+          
+      }
+  } else if (e.code === "ArrowUp") {
+      let up = map[playerRowPos - 1][playerColPos]
+      if (up !== "W") {
+          topPos -= 40
+          playerRowPos--
+      }
+  } else if (e.code === "ArrowLeft") {
+      let left = map[playerRowPos][playerColPos - 1]
+      if (left !== "W") {
+          leftPos -= 38.09
+          playerColPos--
+      }
+  } else if (e.code === "ArrowRight") {
+      let right = map[playerRowPos][playerColPos + 1]
+      if (right !== "W") {
+          leftPos += 38.09
+          playerColPos++
 
-      const blockType = rowString[colNum]
-    
-
-      if (blockType === 'W') {
-          blockDivs += '<div class = "block wall"></div>'
-      } else if (blockType === 'S') {
-              blockDivs += '<div class = "block"><div id = "ghost"></div></div>'
-
-              r = rowNum
-              c = colNum
-
-      } else if (blockType === 'F') { blockDivs += '<div class = "block finish"></div>'
-      } else {
-        //if it's a space in the map it's a block
-          blockDivs += '<div class = "block"></div>'
-      } 
+          if (playerRowPos === finishRowPos && playerColPos === finishColPos) {
+              setTimeout( function() {
+                  let bannerOverlay = document.createElement("div")
+                  bannerOverlay.className = "win"
+                  bannerOverlay.innerHTML = 
+                      `<div class="text">
+                      <h3>YAY!</h3>
+                      <p>You beat the maze!</p>
+                      <div><a href="index.html">Reset Game</a></div>
+                      </div>`
+                  document.body.append(bannerOverlay)
+              }, 300)
+          } 
+      }
   }
-
-  mazeEl.innerHTML += '<div class = "row">' + blockDivs + '</div>'
-
-
-
-}
+  player.style.top = topPos + "px"
+  player.style.left = leftPos + "px"
 }
 
-
-createMaze(map)
-
-
-
-// keyboard event code
-let moveUpDwn = 200;
-let moveLtRt = 0;
-
-
-document.addEventListener('keydown', ghostMove);
-
-function ghostMove(event) {
-if(event.key == "ArrowRight") {
-  //don't want ghost moving through walls
-
-  if (map[r][c] !== "W") {
-    
-  } 
-  moveLtRt += 20
-}
-
-else if(event.key == "ArrowDown") {
-  if (map[r][c] !== "W") {
-    
-  } 
-  moveUpDwn += 20
-}
-
-else if(event.key == "ArrowLeft") {
-  if (map[r][c] !== "W") {
-    
-  } 
-  moveLtRt -= 20
-
-}
-
-else if(event.key == "ArrowUp") {    
-  if (map[r][c] !== "W") {
-    
-  }
-  moveUpDwn -= 20
-}
-
-// should player be here
-//document.getElementById("ghost").style.move = //moveUpDwn;
-let ghost = document.getElementById("ghost")
-
-document.getElementById("ghost").style.top = moveUpDwn + "px";
-document.getElementById("ghost").style.left = moveLtRt + "px";
-
-
-}
-
-
+document.addEventListener("keydown", movePlayer)
