@@ -87,8 +87,8 @@ function movePlayer(e) {
                   bannerOverlay.className = "win"
                   bannerOverlay.innerHTML = 
                       `<div class="text">
-                      <h3>YAY!</h3>
-                      <p>You beat the maze!</p>
+                      <h3>Congrats!</h3>
+                      <p>You're doomed!</p>
                       <div><a href="index.html">Reset Game</a></div>
                       </div>`
                   document.body.append(bannerOverlay)
