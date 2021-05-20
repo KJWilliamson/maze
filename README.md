@@ -1,4 +1,6 @@
-https://kamelaw.gitlab.io/maze/
+PAGE FOR MAZE
+
+https://kjwilliamson.github.io/maze/
 
 
 Randy supplied lots of Css and JS code in demo and it's being used in here
