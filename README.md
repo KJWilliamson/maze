@@ -3,8 +3,6 @@ https://kamelaw.gitlab.io/maze/
 
 Randy supplied lots of Css and JS code in demo and it's being used in here
 
-Sorry about all the comments!
-
 *****Today, you will create a JavaScript game that displays a maze, and lets the player use the cursor keys to move through it one step at a time. The maze is a 2D array of cells which are either floors (passable) or walls (impassable).*****
 
 *****GUIDANCE*******
@@ -30,7 +28,7 @@ Allow user to move through the maze, blocked by walls and cannot move outside th
 
 Using keyboard events to move player around with arrow keys
 
-Gam is won when the player reaches finish
+Game is won when the player reaches finish
 
 
 
