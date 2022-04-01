@@ -33,5 +33,8 @@ Using keyboard events to move player around with arrow keys
 Game is won when the player reaches finish
 
 
+![clownmaze](https://user-images.githubusercontent.com/24884380/161319595-186403e0-ae98-45b1-9068-b419ed329eb1.jpeg)
+
+
 
 
