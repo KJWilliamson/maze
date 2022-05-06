@@ -1,4 +1,6 @@
-PAGE FOR MAZE
+# PAGE FOR MAZE
+
+# Need to add mobile capability
 
 https://kjwilliamson.github.io/maze/
 
