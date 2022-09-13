@@ -1,6 +1,6 @@
-# PAGE FOR MAZE
+## Clown MAZE
 
-# Need to add mobile capability
+### Need to add mobile capability
 
 https://kjwilliamson.github.io/maze/
 
