@@ -5,7 +5,7 @@
 https://kjwilliamson.github.io/maze/
 
 
-Randy supplied lots of Css and JS code in demo and it's being used in here
+Randy supplied part of the CSS & Javascript code in our demo and it's being used here.
 
 *****Today, you will create a JavaScript game that displays a maze, and lets the player use the cursor keys to move through it one step at a time. The maze is a 2D array of cells which are either floors (passable) or walls (impassable).*****
 
