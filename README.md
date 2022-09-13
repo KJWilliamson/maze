@@ -2,6 +2,8 @@
 
 ### Need to add mobile capability
 
+https://clown-maze.netlify.app/
+
 https://kjwilliamson.github.io/maze/
 
 
