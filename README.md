@@ -28,7 +28,7 @@ When the player moves onto the finish square, show the user that they have won (
 
 *****BREAKDOWN:******
 
-Draw the maze. (Randy gave us code for this)
+Draw the maze.
 
 Allow user to move through the maze, blocked by walls and cannot move outside the maze  Must have a start and finish point
 
